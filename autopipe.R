@@ -14,6 +14,10 @@ DROPBOX_DIR <- "TEMPEST_PNNL_Data/Current_data"
 sf_raw <- compasstools::process_sapflow_dir(DROPBOX_DIR,
                                             tz = "EST",
                                             dropbox_token = refreshable_token)
+
+
+# Process data ------------------------------------------------------------
+
 test_n_obs <- nrow(sf_raw)
 write.csv(head(sf_raw), "data_upload/sf_raw.csv")
 
@@ -40,3 +44,5 @@ WEBHOOK_URL <- readRDS("slacktoken.rds")
 msg <- paste("Processed", test_n_obs, "sapflow observations")
 message("Posting to Slack: ", msg)
 slackr_bot(msg, incoming_webhook_url = WEBHOOK_URL)
+
+message("All done.")
