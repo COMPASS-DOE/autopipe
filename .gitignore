@@ -12,10 +12,8 @@
 # Example code in package build process
 *-Ex.R
 
-# Output files from R CMD build
+# Output files from R CMD build and check
 /*.tar.gz
-
-# Output files from R CMD check
 /*.Rcheck/
 
 # RStudio files
@@ -47,3 +45,9 @@ po/*~
 
 # RStudio Connect folder
 rsconnect/
+
+# Dropbox and Google Drive tokens
+*token.rds
+
+# OS files
+.DS_Store
